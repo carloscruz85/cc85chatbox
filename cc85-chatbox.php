@@ -9,3 +9,5 @@ Author URI: https://github.com/carloscruz85/cc85chatbox
 License: GPLv2 or later
 Text Domain: cc85
 */
+
+include('admin/questions.php');
