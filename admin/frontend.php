@@ -12,6 +12,16 @@ function cc85_code_footer() {
     z-index: 9999;
     }
 
+    #cc85-chatbox-container table{
+      width: 100% !important;
+
+    }
+
+    #cc85-chatbox-container table tr td{
+      width: auto !important;
+      padding: 0;
+    }
+
     button.eDBgHl {
     white-space: normal !important;
     }
@@ -25,6 +35,19 @@ function cc85_code_footer() {
     .rsc-ts-image{
       width: 40px;
       height: 40px;
+    }
+
+    .fWjGvK{
+      bottom: 5rem !important;
+      right: 1rem !important;
+    }
+
+    .rsc-content{
+      padding: 1rem;
+    }
+
+    .rsc-os-option-element{
+      margin: 0 !important;
     }
     </style>
     <div id="cc85-chatbox-container"></div>
