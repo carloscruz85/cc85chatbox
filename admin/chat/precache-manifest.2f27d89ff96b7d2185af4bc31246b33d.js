@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "abf048eb79505d1c07fe694f56466e2f",
+    "revision": "9342f3eb8724e8f11d2d9afaf7236006",
     "url": "./wp-content/plugins/cc85-chatbox/chat/index.html"
   },
   {
-    "revision": "843cbe8279fcd0ce409e",
-    "url": "./wp-content/plugins/cc85-chatbox/chat/static/css/main.742db70e.chunk.css"
+    "revision": "2c3691120500fdbe90d9",
+    "url": "./wp-content/plugins/cc85-chatbox/chat/static/css/main.629bd338.chunk.css"
   },
   {
-    "revision": "dc4c8bdd24c6736eda0f",
-    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/2.ed1c6cbc.chunk.js"
+    "revision": "ffebeb7821eac51732e1",
+    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/2.fc3638b0.chunk.js"
   },
   {
     "revision": "4ba1a1c11c57ed15aa68008707a3d6b4",
-    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/2.ed1c6cbc.chunk.js.LICENSE.txt"
+    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/2.fc3638b0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "843cbe8279fcd0ce409e",
-    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/main.4cce1cad.chunk.js"
+    "revision": "2c3691120500fdbe90d9",
+    "url": "./wp-content/plugins/cc85-chatbox/chat/static/js/main.d4c40001.chunk.js"
   },
   {
     "revision": "477b7a93ebea4197a489",
