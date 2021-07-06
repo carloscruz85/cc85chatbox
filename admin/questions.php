@@ -118,7 +118,7 @@ $tempValue = 1;
    array_push($questions[$value->term_id],
    array(
      'value'    => $tempValue++,
-     'message'  => get_the_title(),
+     'label'  => get_the_title(),
      'trigger'  => "".(sizeof($terms) + 3 + $contQuestions++).""
    ));
 
@@ -133,13 +133,13 @@ $tempValue = 1;
 }
 
 //add end option
-array_push( $cats,
-array(
-  'value' => 0,
-  'label' => "Eso es todo, muchas gracias",
-  'trigger' => "end"
-)
- );
+// array_push( $cats,
+// array(
+//   'value' => 0,
+//   'label' => "Eso es todo, muchas gracias",
+//   'trigger' => "end"
+// )
+//  );
 
 array_push($data, array(
         "id"      => '2',
@@ -166,20 +166,38 @@ $i = 3;
     array_push($data,
       array(
         'id'      => "".(sizeof($terms) + $key + 3)."",
-        'message' => $value,
-        'trigger'     => "2"
+        'message' => strip_tags($value),
+        'trigger'     => "menu"
       )
     );
   }
 
-  array_push(
-    $data,
-    array(
-      'id' => "final",
-      "message" => "Que tengas un buen día",
-      "end" => true
-    )
-  );
+  // go to menu
+
+    array_push($data,
+      array(
+        'id' => "menu",
+        "options" => array(
+
+          array(
+            "id" => 'menu',
+            "label" => "ver el menu",
+            "trigger" => 2
+           )
+
+        )
+      )
+    );
+
+
+  // array_push(
+  //   $data,
+  //   array(
+  //     'id' => "end",
+  //     "message" => "Que tengas un buen día",
+  //     "end" => true
+  //   )
+  // );
 
 	return $data;
 }
