@@ -15,7 +15,7 @@ function add_questions_post_type() {
     'hierarchical'       => true,
     'menu_position'      => null,
     'supports'           => array( 'title', 'editor'),
-    'menu_icon'          => 'dashicons-tag',
+    'menu_icon'          => 'dashicons-format-chat',
 
   );
   register_post_type( 'questions', $args );
@@ -61,7 +61,7 @@ add_action( 'rest_api_init', function () {
   	$data = array(
       array(
         "id"      => '1',
-        "message" => 'Bienvenido',
+        "message" => 'Bienvenido, ¿En qué puedo ayudarte?',
         "trigger" => '2',
       )
   	);
@@ -166,7 +166,8 @@ $i = 3;
     array_push($data,
       array(
         'id'      => "".(sizeof($terms) + $key + 3)."",
-        'message' => strip_tags($value),
+        // 'message' => strip_tags($value),
+        'component' => "$value",
         'trigger'     => "menu"
       )
     );

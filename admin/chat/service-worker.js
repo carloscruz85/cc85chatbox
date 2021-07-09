@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "./wp-content/plugins/cc85-chatbox/chat/precache-manifest.4dbb8df7362c9507d949c4e7d48d7e97.js"
+  "./wp-content/plugins/cc85-chatbox/chat/precache-manifest.8e80a0d562f23d87ba7e9ce8d3e27881.js"
 );
 
 self.addEventListener('message', (event) => {
