@@ -12,4 +12,5 @@ Text Domain: cc85
 
 include('admin/questions.php');
 include('admin/frontend.php');
-// include('admin/setting-page.php');
+include('admin/setting-page.php');
+include('admin/img.php');

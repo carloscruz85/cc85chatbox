@@ -7,51 +7,134 @@
 /**
  * custom option and settings
  */
-function wporg_settings_init() {
-    // Register a new setting for "wporg" page.
-    register_setting( 'wporg', 'wporg_options' );
+function cc85chatbot_settings_init() {
+    // Register a new setting for "cc85chatbot" page.
+    register_setting( 'cc85chatbot', 'cc85chatbot_options' );
 
-    // Register a new section in the "wporg" page.
     add_settings_section(
-        'wporg_section_developers',
-        __( 'The Matrix has you man.', 'wporg' ), 'wporg_section_developers_callback',
-        'wporg'
+        'cc85chatbot_color_section',
+        __( 'Colors', 'cc85chatbot' ),
+        'cc85chatbot_section_description_callback',
+        'cc85chatbot'
     );
 
-    // Register a new field in the "wporg_section_developers" section, inside the "wporg" page.
+    //preview
+    add_settings_section(
+        'cc85chatbot_preview_section',
+        __( 'Preview', 'cc85chatbot' ),
+        'cc85chatbot_section_preview_description_callback',
+        'cc85chatbot'
+    );
+    //preview
+
     add_settings_field(
-        'wporg_field_pill', // As of WP 4.6 this value is used only internally.
+        'bg_header_color', // As of WP 4.6 this value is used only internally.
                                 // Use $args' label_for to populate the id inside the callback.
-            __( 'Pill', 'wporg' ),
-        'wporg_field_pill_cb',
-        'wporg',
-        'wporg_section_developers',
+            __( 'Header', 'cc85chatbot' ),
+        'color_section_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
         array(
-            'label_for'         => 'wporg_field_pill',
-            'class'             => 'wporg_row',
-            'wporg_custom_data' => 'custom',
+            'label_for'         => 'bg_header_color',
+            'class'             => 'cc85chatbot_row_bg_header',
+            'cc85chatbot_custom_data' => 'custom_bg_header',
         )
     );
 
     add_settings_field(
-        'wporg_field_bg_header', // As of WP 4.6 this value is used only internally.
+        'bot_chat_color', // As of WP 4.6 this value is used only internally.
                                 // Use $args' label_for to populate the id inside the callback.
-            __( 'Header_color', 'wporg' ),
-        'wporg_field_header_color_cb',
-        'wporg_header_color',
-        'wporg_section_developers_bg_header',
+            __( 'Bot bubble answer', 'cc85chatbot' ),
+        'color_section_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
         array(
-            'label_for'         => 'wporg_field_header_color',
-            'class'             => 'wporg_row_header_color',
-            'wporg_custom_data' => 'custom_header_color',
+            'label_for'         => 'bot_chat_color',
+            'class'             => 'bot_chat_color',
+            'cc85chatbot_custom_data' => 'bot_chat_color',
         )
     );
+
+    add_settings_field(
+        'user_chat_color', // As of WP 4.6 this value is used only internally.
+                                // Use $args' label_for to populate the id inside the callback.
+            __( 'User bubble answer', 'cc85chatbot' ),
+        'color_section_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
+        array(
+            'label_for'         => 'user_chat_color',
+            'class'             => 'user_chat_color',
+            'cc85chatbot_custom_data' => 'user_chat_color',
+        )
+    );
+
+    add_settings_field(
+        'bg_chat_color', // As of WP 4.6 this value is used only internally.
+                                // Use $args' label_for to populate the id inside the callback.
+            __( 'Chat background color', 'cc85chatbot' ),
+        'color_section_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
+        array(
+            'label_for'         => 'bg_chat_color',
+            'class'             => 'bg_chat_color',
+            'cc85chatbot_custom_data' => 'bg_chat_color',
+        )
+    );
+
+    add_settings_field(
+        'user_chat_bot', // As of WP 4.6 this value is used only internally.
+                                // Use $args' label_for to populate the id inside the callback.
+            __( 'User Avatar', 'cc85chatbot' ),
+        'img_chat_bot_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
+        array(
+            'label_for'         => 'user_chat_bot',
+            'class'             => 'user_chat_bot',
+            'cc85chatbot_custom_data' => 'user_chat_bot',
+        )
+    );
+
+    add_settings_field(
+        'chat_bot_image', // As of WP 4.6 this value is used only internally.
+                                // Use $args' label_for to populate the id inside the callback.
+            __( 'Chat icon', 'cc85chatbot' ),
+        'img_chat_bot_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
+        array(
+            'label_for'         => 'chat_bot_image',
+            'class'             => 'chat_bot_image',
+            'cc85chatbot_custom_data' => 'chat_bot_image',
+        )
+    );
+
+    add_settings_field(
+        'machine_avatar', // As of WP 4.6 this value is used only internally.
+                                // Use $args' label_for to populate the id inside the callback.
+            __( 'Bot icon', 'cc85chatbot' ),
+        'img_chat_bot_callback',
+        'cc85chatbot',
+        'cc85chatbot_color_section',
+        array(
+            'label_for'         => 'machine_avatar',
+            'class'             => 'machine_avatar',
+            'cc85chatbot_custom_data' => 'machine_avatar',
+        )
+    );
+
+
+
+
 }
 
+
 /**
- * Register our wporg_settings_init to the admin_init action hook.
+ * Register our cc85chatbot_settings_init to the admin_init action hook.
  */
-add_action( 'admin_init', 'wporg_settings_init' );
+add_action( 'admin_init', 'cc85chatbot_settings_init' );
 
 
 /**
@@ -65,87 +148,127 @@ add_action( 'admin_init', 'wporg_settings_init' );
  *
  * @param array $args  The settings array, defining title, id, callback.
  */
-function wporg_section_developers_callback( $args ) {
+function cc85chatbot_section_developers_callback( $args ) {
     ?>
-    <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'wporg' ); ?></p>
+    <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'cc85chatbot' ); ?></p>
     <?php
 }
 
-/**
- * Pill field callbakc function.
- *
- * WordPress has magic interaction with the following keys: label_for, class.
- * - the "label_for" key value is used for the "for" attribute of the <label>.
- * - the "class" key value is used for the "class" attribute of the <tr> containing the field.
- * Note: you can add custom key value pairs to be used inside your callbacks.
- *
- * @param array $args
- */
-function wporg_field_pill_cb( $args ) {
-    // Get the value of the setting we've registered with register_setting()
-    $options = get_option( 'wporg_options' );
-    ?>
-    <select
-            id="<?php echo esc_attr( $args['label_for'] ); ?>"
-            data-custom="<?php echo esc_attr( $args['wporg_custom_data'] ); ?>"
-            name="wporg_options[<?php echo esc_attr( $args['label_for'] ); ?>]">
-        <option value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'red', false ) ) : ( '' ); ?>>
-            <?php esc_html_e( 'red pill', 'wporg' ); ?>
-        </option>
-        <option value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'blue', false ) ) : ( '' ); ?>>
-            <?php esc_html_e( 'blue pill', 'wporg' ); ?>
-        </option>
-        <option value="orange" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'orange', false ) ) : ( '' ); ?>>
-            <?php esc_html_e( 'orange pill', 'wporg' ); ?>
-        </option>
-    </select>
-
-    <p class="description">
-        <?php esc_html_e( 'You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes.', 'wporg' ); ?>
-    </p>
-    <p>
-      <pre>
-        <?php
-          print_r(
-            $args
-            )
-         ?>
-         <?php
-           print_r(
-             $options
-             )
-          ?>
-      </pre>
-    </p>
-    <?php
-}
-
-function wporg_field_header_color_cb($args){
+function cc85chatbot_section_description_callback($args){
   ?>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <strong>Type the HEX color, <span style="color: red">do not include the # symbol</span> </strong>
+  <?php
+}
+
+function cc85chatbot_section_preview_description_callback($args){
+  $options = get_option( 'cc85chatbot_options' );
+  ?>
+  <style>
+    .bubble{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      border-radius: 25px;
+      color: white;
+      margin: 5px 0;
+      /* justify-content: flex-end; */
+    }
+
+
+
+    .bubble:nth-child(even) {
+
+      justify-content: flex-end;
+    }
+    .bubble span{
+      margin: 0 0.5rem;
+    }
+
+    .bubble img{
+      width: 25px;
+      height: auto;
+      background-color: #dedede;
+      border-radius: : 50%;
+    }
+
+  </style>
+  <div class="" style="background-color:#fff; width: 300px; height: 400px; border-radius: 20px; overflow: hidden;">
+    <div style="background-color: #<?php echo $options['bg_header_color'] ?>; width: 295px; height: 50px; padding: 5px 0 0 5px;">
+      <img src="<?php echo $options['chat_bot_image'] ?>" alt="chat icon" width="40px" height="auto" />
+    </div>
+
+    <div style="height: 300px; width: 290px; background-color: #<?php echo $options['bg_chat_color'] ?>; padding: 5px;">
+        <div style=" background-color: #<?php echo $options['bot_chat_color'] ?>;  " class="bubble">
+
+            <img src="<?php echo $options['machine_avatar'] ?>" alt="Bot icon" /> <span>Hi Human!</span>
+
+        </div>
+        <div style=" background-color: #<?php echo $options['user_chat_color'] ?>;  " class="bubble">
+
+            <span>Hi Bot!</span> <img src="<?php echo $options['user_chat_bot'] ?>" alt="Bot icon" />
+
+        </div>
+    </div>
+  </div>
+
+
+  <?php
+}
+
+
+function color_section_callback($args){
+      $options = get_option( 'cc85chatbot_options' );
+
+  ?>
+  <input
+    id="<?php echo esc_attr( $args['label_for'] ); ?>"
+    type="text"
+    data-custom="<?php echo esc_attr( $args['cc85chatbot_custom_data'] ); ?>"
+    name="cc85chatbot_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+    value="<?php echo esc_attr($options[ $args['label_for'] ]) ?>"
+    style="background-color:  #<?php if( esc_attr($options[ $args['label_for'] ]) != '' ) echo esc_attr($options[ $args['label_for'] ]); else echo '454545'  ?>; width: 90%; color: white; padding: 0.5rem;"
+    >
+
+  <?php
+}
+
+
+function img_chat_bot_callback($args){
+      $options = get_option( 'cc85chatbot_options' );
+
+  ?>
+    <img src="<?php echo esc_attr($options[ $args['label_for'] ]) ?>" alt="<?php echo esc_attr( $args['label_for'] ); ?>" width="50px" height="auto"><br />
+    <input type="hidden"
+    data-custom="<?php echo esc_attr( $args['cc85chatbot_custom_data'] ); ?>"
+    name="cc85chatbot_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+    value="<?php echo esc_attr($options[ $args['label_for'] ]) ?>"
+
+     />
+    <button class="button cc85chatbot_upload_<?php echo esc_attr( $args['label_for'] ); ?>">Upload</button>
+
   <?php
 }
 
 /**
  * Add the top level menu page.
  */
-function wporg_options_page() {
+function cc85chatbot_options_page() {
     add_menu_page(
         'Chatbot Settings',
         'Chatbot settings',
         'manage_options',
         'chatbot-settings',
         'chatbot_settings_functions',
-        'dashicons-admin-comments'
+        'dashicons-admin-generic'
     );
 }
 
 
 /**
- * Register our wporg_options_page to the admin_menu action hook.
+ * Register our cc85chatbot_options_page to the admin_menu action hook.
  */
-add_action( 'admin_menu', 'wporg_options_page' );
-
+add_action( 'admin_menu', 'cc85chatbot_options_page' );
 
 /**
  * Top level menu callback function
@@ -162,22 +285,22 @@ function chatbot_settings_functions() {
     // WordPress will add the "settings-updated" $_GET parameter to the url
     if ( isset( $_GET['settings-updated'] ) ) {
         // add settings saved message with the class of "updated"
-        add_settings_error( 'wporg_messages', 'wporg_message', __( 'Settings Saved', 'wporg' ), 'updated' );
+        add_settings_error( 'cc85chatbot_messages', 'cc85chatbot_message', __( 'Settings Saved', 'cc85chatbot' ), 'updated' );
     }
 
     // show error/update messages
-    settings_errors( 'wporg_messages' );
+    settings_errors( 'cc85chatbot_messages' );
     ?>
     <div class="wrap">
         <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
         <form action="options.php" method="post">
             <?php
-            // output security fields for the registered setting "wporg"
-            settings_fields( 'wporg' );
-            settings_fields( 'wporg_header_color' );
+            // output security fields for the registered setting "cc85chatbot"
+            settings_fields( 'cc85chatbot' );
+            // settings_fields( 'cc85chatbot_header_color' );
             // output setting sections and their fields
-            // (sections are registered for "wporg", each field is registered to a specific section)
-            do_settings_sections( 'wporg' );
+            // (sections are registered for "cc85chatbot", each field is registered to a specific section)
+            do_settings_sections( 'cc85chatbot' );
             // output save settings button
             submit_button( 'Save' );
             ?>
