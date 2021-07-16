@@ -308,3 +308,20 @@ function chatbot_settings_functions() {
     </div>
     <?php
 }
+
+// api rest custom settings
+add_action( 'rest_api_init', function () {
+   register_rest_route( 'ccruz85/v2', '/cc85chatbot/',
+     array(
+       'methods' => 'GET',
+       'callback' => 'custom_cc85chatbox_setings'
+     )
+   );
+  });
+
+  function custom_cc85chatbox_setings($d){
+    $options = get_option( 'cc85chatbot_options' );
+    return $options;
+  }
+
+?>

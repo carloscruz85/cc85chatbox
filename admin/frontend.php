@@ -55,10 +55,10 @@ function cc85_code_footer() {
     }
     </style>
     <div id="cc85-chatbox-container"></div>
-    <link rel="stylesheet" href="'.plugin_dir_url( __FILE__ ).'chat/static/css/main.bd76f6a3.chunk.css">
+    <link rel="stylesheet" href="'.plugin_dir_url( __FILE__ ).'chat/static/css/main.629bd338.chunk.css">
 
-    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/2.8e618abd.chunk.js"></script>
-    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/main.8e8ca42e.chunk.js"></script>
+    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/2.175dc49d.chunk.js"></script>
+    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/main.cc720a6f.chunk.js"></script>
     <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/runtime-main.f2fb2dad.js"></script>
 
 
