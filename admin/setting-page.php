@@ -227,7 +227,7 @@ function color_section_callback($args){
     data-custom="<?php echo esc_attr( $args['cc85chatbot_custom_data'] ); ?>"
     name="cc85chatbot_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
     value="<?php echo esc_attr($options[ $args['label_for'] ]) ?>"
-    style="background-color:  #<?php if( esc_attr($options[ $args['label_for'] ]) != '' ) echo esc_attr($options[ $args['label_for'] ]); else echo '454545'  ?>; width: 90%; color: white; padding: 0.5rem;"
+    style="width: 90%; color: black; padding: 0.5rem;"
     >
 
   <?php
