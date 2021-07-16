@@ -227,7 +227,7 @@ function color_section_callback($args){
     data-custom="<?php echo esc_attr( $args['cc85chatbot_custom_data'] ); ?>"
     name="cc85chatbot_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
     value="<?php echo esc_attr($options[ $args['label_for'] ]) ?>"
-    style="background-color:  #<?php if( esc_attr($options[ $args['label_for'] ]) != '' ) echo esc_attr($options[ $args['label_for'] ]); else echo '454545'  ?>; width: 90%; color: white; padding: 0.5rem;"
+    style="width: 90%; color: black; padding: 0.5rem;"
     >
 
   <?php
@@ -308,3 +308,20 @@ function chatbot_settings_functions() {
     </div>
     <?php
 }
+
+// api rest custom settings
+add_action( 'rest_api_init', function () {
+   register_rest_route( 'ccruz85/v2', '/cc85chatbot/',
+     array(
+       'methods' => 'GET',
+       'callback' => 'custom_cc85chatbox_setings'
+     )
+   );
+  });
+
+  function custom_cc85chatbox_setings($d){
+    $options = get_option( 'cc85chatbot_options' );
+    return $options;
+  }
+
+?>

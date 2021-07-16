@@ -166,8 +166,8 @@ $i = 3;
     array_push($data,
       array(
         'id'      => "".(sizeof($terms) + $key + 3)."",
-        // 'message' => strip_tags($value),
-        'component' => "$value",
+        'message' => strip_tags($value),
+        // 'message' => "$value",
         'trigger'     => "menu"
       )
     );
@@ -202,4 +202,6 @@ $i = 3;
 
 	return $data;
 }
+
+
 ?>

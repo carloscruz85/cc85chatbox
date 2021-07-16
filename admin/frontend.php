@@ -2,10 +2,6 @@
 //adding code to footer
 add_action('wp_footer', 'cc85_code_footer');
 function cc85_code_footer() {
-
-
-
-
     echo '
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap" rel="stylesheet">
     <style>
@@ -55,12 +51,34 @@ function cc85_code_footer() {
     }
     </style>
     <div id="cc85-chatbox-container"></div>
-    <link rel="stylesheet" href="'.plugin_dir_url( __FILE__ ).'chat/static/css/main.bd76f6a3.chunk.css">
+    <link rel="stylesheet" href="'.plugin_dir_url( __FILE__ ).'chat/static/css/main.629bd338.chunk.css">
 
-    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/2.8e618abd.chunk.js"></script>
-    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/main.8e8ca42e.chunk.js"></script>
+    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/2.175dc49d.chunk.js"></script>
+    <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/main.cc720a6f.chunk.js"></script>
     <script src="'.plugin_dir_url( __FILE__ ).'chat/static/js/runtime-main.f2fb2dad.js"></script>
-
-
     ';
+    $options = get_option( 'cc85chatbot_options' );
+    ?>
+    <style>
+      .rsc .rsc-float-button, .rsc .my-chat-header{
+        background-color: #<?php echo $options['bg_header_color'] ?> !important;
+      }
+
+      .rsc .rsc-content{
+        background-color: #<?php echo $options['bg_chat_color'] ?> !important;
+      }
+
+      .rsc .rsc-ts-bot .rsc-ts-bubble, .rsc .rsc-os-options .rsc-os-option-element{
+        background-color: #<?php echo $options['bot_chat_color'] ?> !important;
+      }
+
+      .rsc .rsc-ts-user .rsc-ts-bubble{
+        background-color: #<?php echo $options['user_chat_color'] ?> !important;
+      }
+
+
+
+
+    </style>
+    <?php
 }
