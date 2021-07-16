@@ -15,7 +15,7 @@ function add_questions_post_type() {
     'hierarchical'       => true,
     'menu_position'      => null,
     'supports'           => array( 'title', 'editor'),
-    'menu_icon'          => 'dashicons-format-chat',
+    'menu_icon'          => 'dashicons-tag',
 
   );
   register_post_type( 'questions', $args );
